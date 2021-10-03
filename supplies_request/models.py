@@ -1,15 +1,16 @@
 from django.db import models
-from products.models import Products
+from products.models import Product
 # Create your models here.
 
-class Supplies_Request(models.Model):
-	date = models.DateField()
-	provider = models.CharField(max_length=200)
+class SuppliesRequest(models.Model):
+	date = models.DateField('Fecha')
+	provider = models.CharField('Proveedor', max_length=200)
 
-class Request_Content(models.Model):
-	id_supplies_request = models.ForeignKey(Supplies_Request, on_delete=models.CASCADE)
+class RequestContent(models.Model):
+	id_supplies_request = models.ForeignKey(SuppliesRequest, on_delete=models.CASCADE, verbose_name='Pedido')
 	#temporal id_producto have text name of the product
 	#will be changed for a id soo
-	id_product = models.ForeignKey(Products, on_delete=models.CASCADE)
-	quantity = models.IntegerField()
-	cost = models.DecimalField(max_digits=15 ,decimal_places=2)
+	id_product = models.ForeignKey(Product, on_delete=models.CASCADE, verbose_name='Producto')
+	quantity = models.IntegerField('Cantidad')
+	cost_d = models.DecimalField('Coste en Dolares',max_digits=15 ,decimal_places=2, default=0)
+	cost_b = models.DecimalField('Coste en Bolívares',max_digits=15 ,decimal_places=2, default=0)
