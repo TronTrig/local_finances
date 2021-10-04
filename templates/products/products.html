@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<title>Products - Finanzas Locales</title>
+</head>
+<body>
+	{% if list_products %}
+
+		<ul>
+			{% for product in list_products %}
+
+				<li>
+					<a href="{% url 'products:product_detail' product.id %}">{{product.name}}</a>
+				</li>
+
+			{% endfor %}
+		</ul>
+
+		{% else %}
+
+		<p>Olvidaste añadir productos? Agrega unos.</p>
+
+	{% endif %}
+</body>
+</html>
