@@ -21,6 +21,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+
+#Get the secret key from enviroment variable
 SECRET_KEY = os.environ['local_finances_django_key']
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -32,8 +34,10 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    # Own
     'supplies_request.apps.SuppliesRequestConfig',
     'products.apps.ProductsConfig',
+    # Default
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -59,6 +63,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
+            # This set the global templates's folder
             os.path.join(BASE_DIR, 'templates')
         ],
         'APP_DIRS': True,
@@ -82,6 +87,7 @@ WSGI_APPLICATION = 'local_finances.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
+        #Get the name, user and password from enviroment variable
         'NAME': os.environ['local_finances_name'],
         'USER': os.environ['local_finances_user'],
         'PASSWORD': os.environ['local_finances_pass'],

@@ -1,12 +1,6 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-	<meta charset="utf-8">
-	<title>Detalles Del Producto - Finanzas Locales</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
-
+{% block content %}
 	<ul>
 		<li>
 			Nombre: {{product.name.title}}
@@ -15,11 +9,6 @@
 		<li>
 			Descripción: {{product.description}}
 		</li>
-
-		<li>
-			<a href="{% url 'products:products' %}">Regresa a la lista de productos</a>
-		</li>
 	</ul>
 
-</body>
-</html>
+{% endblock%}

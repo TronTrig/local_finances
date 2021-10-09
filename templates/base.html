@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<title>{{ meta_title }} - Finanzas Locales</title>
+	<meta rel="description" content="{{ meta_description }}">
+	<meta rel="viewport" content="width=device-width initial-scale=1.0">
+	<style type="text/css">
+		.main-nav{
+			padding: 0.4rem;
+			margin-bottom: 1rem;
+			border-bottom: 1px solid lightgray;
+			box-shadow: 0px 3px 1px lightgray;
+		}
+
+		.main-footer{
+			padding: 0.4rem;
+			margin-bottom: 1rem;
+			border-top: 1px solid lightgray;
+			box-shadow: 0px -3px 1px lightgray;	
+			background-color: lightskyblue;
+			border-radius: 4px;
+		}
+	</style>
+</head>
+<body>
+	<nav class="main-nav">
+		<span>
+			<a href="{% url 'products:products' %}">
+				Productos
+			</a>
+		</span>
+	</nav>
+	{% block content%}
+
+	{% endblock %}
+
+	{% include 'footer.html' %}
+</body>
+</html>

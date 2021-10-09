@@ -1,10 +1,9 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-	<meta charset="utf-8">
-	<title>Products - Finanzas Locales</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block content %}
+	<div>
+		<button><a href="{% url 'products:product_form' %}">Agregar</a></button>
+	</div>
 	{% if list_products %}
 
 		<ul>
@@ -22,5 +21,4 @@
 		<p>Olvidaste añadir productos? Agrega unos.</p>
 
 	{% endif %}
-</body>
-</html>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	<div>
+		<form id="form" method="POST">{% csrf_token %}
+			<div>
+				<label for="nombre">
+					Nombre:
+				</label>
+				<input type="text" name="nombre" id="nombre">
+			</div>
+			<div>
+				<label for="descripcion">
+					Descripción:
+				</label>
+				<input type="text" name="descripcion" id="descripcion">
+			</div>
+			<button id="submit-add">Guardar y añadir otro</button>
+			<button id="submit-edit">Guardar y continuar editando</button>
+			<button id="submit">Guardar</button>
+			
+			
+		</form>
+	</div>
+
+{% endblock %}
