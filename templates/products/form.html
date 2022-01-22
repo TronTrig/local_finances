@@ -2,24 +2,36 @@
 
 {% block content %}
 	<div>
-		<form id="form" method="POST">{% csrf_token %}
-			<div>
-				<label for="nombre">
+		<form method="POST"> {% csrf_token %}
+
+			{{form.as_p}}
+
+		<!--	<div>
+				<label for="name">
 					Nombre:
 				</label>
-				<input type="text" name="nombre" id="nombre">
+				<input type="text" name="name" id="name">
 			</div>
 			<div>
-				<label for="descripcion">
+				<label for="description">
 					Descripción:
 				</label>
-				<input type="text" name="descripcion" id="descripcion">
+				<input type="text" name="description" id="description">
 			</div>
-			<button id="submit-add">Guardar y añadir otro</button>
-			<button id="submit-edit">Guardar y continuar editando</button>
-			<button id="submit">Guardar</button>
+		-->
+			<button id="submit-add" type="submit">Guardar y añadir otro</button>
+			<button id="submit-edit" type="submit">Guardar y continuar editando</button>
+			<button id="submit" type="submit">Guardar</button>
+			<div>
+				{{msg}}
+			</div>
 			
-			
+		</form>
+
+		<form id="delete_product" action="{{request.build_absolute_uri}}/eliminar" method="POST">
+			{% csrf_token %}
+
+			<button id="submit" type="submit">Eliminar</button>
 		</form>
 	</div>
 
